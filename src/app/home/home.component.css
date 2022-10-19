@@ -1,0 +1,56 @@
+.search {
+    width: 15%;
+    margin-left: 280px;
+}
+
+.log {
+    margin-left: 474px;
+    background-color: lavender;
+    font-size: 17px;
+}
+
+nav {
+    background-color: slategrey;
+}
+
+.buttn {
+    background-color: lavender;
+    font-size: 17px;
+    margin: 3px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.pagination{
+    background-color: #d2d6db;
+    font-size: large;
+}
+
+.myTable {
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid #ddd;
+    font-size: 18px;
+}
+
+.myTable th,
+.myTable td {
+    text-align: left;
+    padding: 12px;
+}
+
+.myTable tr {
+    border-bottom: 1px solid #ddd;
+}
+
+.myTable tr.header,
+.myTable tr:hover {
+    background-color: #f1f1f1;
+}
+
+.action {
+    cursor: pointer;
+    color: black;
+}

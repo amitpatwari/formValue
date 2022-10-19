@@ -1,0 +1,102 @@
+<!-- <nav class="navbar navbar-expand-lg navbar navClass">
+    <div class="container-fluid">
+        <div class="collapse navbar-collapse">
+            <a class="navbar-brand" routerLink="/home">SiteApp</a>
+            <button routerLink="/home" mat-raised-button>List</button>
+            <button routerLink="/site_form" mat-raised-button>Site Creation</button>
+            <button class="log" routerLink="/" mat-raised-button type="submit">LogOut</button>
+        </div>
+    </div>
+</nav> -->
+<nav class="navbar navbar-expand-lg bg-nav">
+    <div class="container-fluid">
+        <a class="navbar-brand" routerLink="/home">SiteApp</a>
+        <button class="navbar-toggler buttn" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <button class="buttn" routerLink="/home" mat-raised-button>List</button>
+            <button class="buttn" routerLink="/site_form" mat-raised-button>Site Creation</button>
+            <button class="log" routerLink="/" mat-raised-button type="submit">LogOut</button>
+            <form class="d-flex" role="search">
+            </form>
+        </div>
+    </div>
+</nav>
+<form class="row g-3 card" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <!-- <div class="col-md-6">
+        <label class="form-label">Site ID</label>
+        <input type="number" class="form-control" formControlName="siteId" placeholder="Enter site ID">
+        <div class="red-text" *ngIf="(form.get('siteId')?.invalid && form.get('siteId')?.touched)">
+            Please Enter right ID
+        </div>
+    </div> -->
+    <div class="col-md-6">
+        <label class="form-label">Site Name</label>
+        <input type="text" class="form-control" formControlName="site_Name" placeholder="Enter site name">
+        <div class="red-text" *ngIf="(form.get('site_Name')?.invalid && form.get('site_Name')?.touched)">
+            Minimum length should be 4.
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <label class="form-label">Client</label>
+        <input type="text" class="form-control" formControlName="client" placeholder="Enter Client">
+        <div class="red-text" *ngIf="(form.get('client')?.invalid && form.get('client')?.touched)">
+            Minimum length should be 4.
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <label class="form-label">Site Contact</label>
+        <input type="contact" formControlName="site_Contact" (keypress)="OnlyNumbersAllowed($event)" maxlength="10"
+            class="form-control" placeholder="Enter site contact">
+        <div class="red-text" *ngIf="(form.get('site_Contact')?.invalid && form.get('site_Contact')?.touched)">
+            Must be 10 digits
+        </div>
+    </div>
+
+    <div class="col-12">
+        <label class="form-label">Site Description</label>
+        <textarea type="text" formControlName="site_Description" class="form-control"
+            placeholder="Site description"></textarea>
+        <div class="red-text" *ngIf="(form.get('site_Description')?.invalid && form.get('site_Description')?.touched)">
+            Minimum length should be 4.
+        </div>
+    </div>
+    <div class="col-md-6">
+        <label class="form-label">Site Location</label>
+        <input type="text" formControlName="site_Location" class="form-control" placeholder="Site description">
+        <div class="red-text" *ngIf="(form.get('site_Location')?.invalid && form.get('site_Location')?.touched)">
+            Minimum length should be 4.
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <label class="form-label">Product</label>
+        <select class="form-select" formControlName="product">
+            <option value="" disabled selected>Select anyone</option>
+            <option *ngFor="let product of products">{{product.viewValue}}</option>
+        </select>
+        <div class="red-text" *ngIf="(form.get('product')?.invalid && form.get('product')?.touched)">
+            Please select any one.
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <label class="form-label">Subscription</label>
+        <select class="form-select" formControlName="subscription">
+            <option value="" disabled selected>Select anyone</option>
+            <option *ngFor="let subscription of subscriptions">{{subscription.viewValue}}
+            </option>
+        </select>
+        <div class="red-text" *ngIf="(form.get('subscription')?.invalid && form.get('subscription')?.touched)">
+            Please select any one.
+        </div>
+    </div>
+    <div class="col-12">
+        <button type="submit" (click)="addSnack()" [disabled]="form.invalid" class="btn btn-primary">Submit</button>
+    </div>
+</form>

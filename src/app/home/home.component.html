@@ -1,0 +1,54 @@
+<nav class="navbar navbar-expand-lg bg-nav">
+    <div class="container-fluid">
+        <a class="navbar-brand" routerLink="/home">SiteApp</a>
+        <button class="navbar-toggler buttn" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <button class="buttn" routerLink="/home" mat-raised-button>List</button>
+            <button class="buttn" routerLink="/site_form" mat-raised-button>Site Creation</button>
+            <input class="form-control search" name="search" [(ngModel)]="searchText" type="search" placeholder="Search"
+                aria-label="Search">
+            <button class="log" routerLink="/" (click)="logout()" mat-raised-button type="submit">LogOut</button>
+            <form class="d-flex" role="search">
+            </form>
+        </div>
+    </div>
+</nav>
+
+<div class="container mt-4">
+    <table class="myTable">
+        <thead>
+            <th>Site ID</th>
+            <th>Site Name<i (click)="onSortClickSite($event)" class="my-icon fa fa-chevron-up"></i></th>
+            <th>Client<i (click)="onSortClickClient($event)" class="my-icon fa fa-chevron-up"></i></th>
+            <th>Site Contact</th>
+            <th>Site Description</th>
+            <th>Site Location</th>
+            <th>Action</th>
+        </thead>
+        <tbody>
+            <tr *ngFor=" let sitedata of siteData | filter:searchText ; let i=index">
+                <td>{{i+1}}</td>
+                <td>{{sitedata.site_Name}}</td>
+                <td>{{sitedata.client}}</td>
+                <td>{{sitedata.site_Contact}}</td>
+                <td>{{sitedata.site_Description}}</td>
+                <td>{{sitedata.site_Location}}</td>
+                <td>
+                    <mat-icon class="action" (click)="view('0ms', '0ms' , sitedata)" aria-hidden="false"
+                        aria-label="Example visibility icon" fontIcon="visibility">
+                    </mat-icon>
+                    <mat-icon class="action" (click)="edit(sitedata)" aria-hidden="false" aria-label="Example edit icon"
+                        fontIcon="edit">
+                    </mat-icon>
+                    <mat-icon class="action" (click)="delete('0ms', '0ms', i )" aria-hidden="false"
+                        aria-label="Example delete icon" fontIcon="delete">
+                    </mat-icon>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

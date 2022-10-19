@@ -1,0 +1,29 @@
+.card {
+    border: 1px solid rgb(52, 52, 54);
+    width: 500px;
+    padding: 16px;
+    font-size: large;
+    top: 5%;
+    left: 32%;
+    background-color: lightslategrey;
+}
+
+.red-text {
+    color: rgb(139, 19, 19);
+}
+
+.log {
+    margin-left: 940px;
+    background-color: lavender;
+    font-size: 17px;
+}
+
+nav {
+    background-color: slategrey;
+}
+
+.buttn {
+    background-color: lavender;
+    font-size: 17px;
+    margin: 3px;
+}
